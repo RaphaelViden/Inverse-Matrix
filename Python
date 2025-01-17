@@ -1,0 +1,27 @@
+import numpy as np
+
+def calculate_inverse(matrix):
+    try:
+        # Convert the input list to a numpy array
+        np_matrix = np.array(matrix)
+        
+        # Calculate the inverse of the matrix
+        inverse_matrix = np.linalg.inv(np_matrix)
+        
+        return inverse_matrix
+    except np.linalg.LinAlgError:
+        return "The matrix is singular and cannot be inverted."
+
+# Example usage
+matrix = [
+    [-8.54408749e-07, -8.54408749e-07, -8.54408749e-07, -8.54408749e-07],
+    [ 1.92263324e-07,  1.92263324e-07, -1.92263324e-07, -1.92263324e-07],
+    [ 1.92263324e-07, -1.92263324e-07, -1.92263324e-07,  1.92263324e-07],
+    [ 3.97880095e-08, -3.97880095e-08,  3.97880095e-08, -3.97880095e-08]
+]
+
+inverse = calculate_inverse(matrix)
+print("Original Matrix:")
+print(np.array(matrix))
+print("\nInverse Matrix:")
+print(inverse)
